@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>232</x>
+      <y>416</y>
+      <w>288</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>WordsLearning</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>416</x>
+      <y>416</y>
+      <w>424</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>408;80;216;80;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>824</x>
+      <y>240</y>
+      <w>600</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>/StatisticAccessor/
+--
++retrieveStatistic(repeatIntervals: List&lt;Integer&gt;, receiver: ResultReceiver&lt;StatisticResponse&gt;): void
++storeStatistic(words: Map&lt;Integer, WLWord&gt;): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>824</x>
+      <y>488</y>
+      <w>216</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>/WordsLearningListener/
+--
++wordsLearningInitialized(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>824</x>
+      <y>328</y>
+      <w>600</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>/SettingsAccessor/
+--
++retrieveSettings(receiver: ResultReceiver&lt;SettingsBundle&gt;): void
++storePreferences(settingsBundle: SettingsBundle): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>824</x>
+      <y>152</y>
+      <w>600</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>/VocabulariesAccessor/
+--
++saveVocabularies(vocs: List&lt;WLVocabulary&gt;): void
++retrieveVocabularies(receiver: ResultReceiver&lt;List&lt;WLVocabulary&gt;&gt;): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>416</x>
+      <y>136</y>
+      <w>424</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>408;24;216;24;24;280</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>416</x>
+      <y>224</y>
+      <w>424</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>408;24;216;24;24;192</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>416</x>
+      <y>344</y>
+      <w>424</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>408;24;216;24;24;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>824</x>
+      <y>560</y>
+      <w>216</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>/WordsLearningUI/
+--
++isExerciseApplicable(curExId: String, lWord:  WLWord): boolean
++notifyNoVocabularies(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>416</x>
+      <y>416</y>
+      <w>424</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>408;152;216;152;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>792</x>
+      <y>464</y>
+      <w>264</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>bt=.
+View</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>792</x>
+      <y>112</y>
+      <w>656</w>
+      <h>304</h>
+    </coordinates>
+    <panel_attributes>bt=.
+Platform/environment dependent accessors</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>256</x>
+      <y>80</y>
+      <w>200</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()</panel_attributes>
+    <additional_attributes>184;24;184;160;24;208;24;336</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Interface</type>
+    <coordinates>
+      <x>280</x>
+      <y>88</y>
+      <w>320</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>WLLearnEngine
+--
++ finishAnswer(wordId: int, correct: AnswerGrade): void
++ getCurrentLanguage(): Language
++ getAllWords(): Map&lt;Integer, WLWord&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Interface</type>
+    <coordinates>
+      <x>40</x>
+      <y>88</y>
+      <w>208</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>LearnProcessController
+--
++ getNextExercise(): ExerciseAction
++ resetCurrentWord(): void
++ initLearnProcess(): void
++ stopLearnSession(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>120</x>
+      <y>80</y>
+      <w>176</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()</panel_attributes>
+    <additional_attributes>24;24;24;160;160;208;160;336</additional_attributes>
+  </element>
+</diagram>

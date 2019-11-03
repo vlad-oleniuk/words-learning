@@ -1,0 +1,59 @@
+<project name="Words Learning">
+
+	<property file="build/build.properties" />
+
+	<property name="src.dir" value="src/main/java" />
+	<property name="classes.dir" value="target/classes" />
+
+	<property name="project.lib.dir" value="lib" />
+
+	<path id="build.classpath">
+		<fileset dir="${project.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="${classes.dir}" />
+	</path>
+
+
+	<target name="build_model">
+		<jar destfile="target/wl_model.jar">
+			<fileset dir="${classes.dir}">
+				<include name="com/wordslearning/wl/ui/*.class" />
+				<include name="com/wordslearning/wl/model/*.class" />
+				<include name="com/wordslearning/wl/model/*/*.class" />
+			</fileset>
+		</jar>
+	</target>
+	
+	<target name="build_model_src">
+			<jar destfile="target/wl_model-src.jar">
+				<fileset dir="${src.dir}">
+					<include name="com/wordslearning/wl/ui/*.java" />
+					<include name="com/wordslearning/wl/model/*.java" />
+					<include name="com/wordslearning/wl/model/*/*.java" />
+				</fileset>
+			</jar>
+		</target>
+
+	<target name="build">
+		<jar destfile="dist/words-learning.jar" manifest="src/main/resources/META-INF/MANIFEST.MF">
+			<fileset dir="target/classes">
+				<exclude name="**/Test*.class" />
+			</fileset>
+		</jar>
+		<copy todir="dist/lib">
+			<fileset dir="lib">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="deploy" depends="build">
+		<copy todir="${deploy.dir}">
+			<fileset dir="dist">
+				<include name="words-learning.jar" />
+				<include name="lib/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+</project>
