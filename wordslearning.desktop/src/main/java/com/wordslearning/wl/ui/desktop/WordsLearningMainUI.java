@@ -33,33 +33,13 @@ import com.wordslearning.wl.serializers.RepeatingProfileSerializerr;
 import com.wordslearning.wl.serializers.WLProfileSerializerr;
 import com.wordslearning.wl.ui.WordsLearningUI;
 import com.wordslearning.wl.ui.desktop.prefdialog.PrefDialog;
+import dorkbox.systemTray.MenuItem;
 import javax.swing.*;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
 public class WordsLearningMainUI extends JFrame implements WordsLearningUI {
 
-
-	public static void main1(String[] args) {
-		dorkbox.systemTray.SystemTray systemTray = dorkbox.systemTray.SystemTray.get();
-		if (systemTray == null) {
-			throw new RuntimeException("Unable to load SystemTray!");
-		}
-
-		systemTray.setImage(WordsLearningMainUI.class.getResourceAsStream("/icons/trayIcon.png"));
-
-		systemTray.setStatus("Not Running");
-
-
-		systemTray.getMenu().add(new dorkbox.systemTray.MenuItem("Quit", new ActionListener() {
-			@Override
-			public
-			void actionPerformed(final ActionEvent e) {
-				systemTray.shutdown();
-				//System.exit(0);  not necessary if all non-daemon threads have stopped.
-			}
-		})).setShortcut('q'); // case does not matter
-	}
 
 	public static void main(String[] args)
 			throws VocabularyNotAvailableException {
@@ -326,7 +306,8 @@ public class WordsLearningMainUI extends JFrame implements WordsLearningUI {
 	}
 
 	private class WLWindowListener extends WindowAdapter {
-		//private final TrayIcon wlTrayIcon;
+
+		private final MenuItem openItem;
 
 		public WLWindowListener() {
 
@@ -337,35 +318,27 @@ public class WordsLearningMainUI extends JFrame implements WordsLearningUI {
 			}
 			systemTray.setImage(WordsLearningMainUI.class.getResourceAsStream("/icons/trayIcon.png"));
 
-			dorkbox.systemTray.MenuItem openItem = new dorkbox.systemTray.MenuItem("Show", new ShowWindowActionListener());
-			//menu.addSeparator();
+			openItem = new dorkbox.systemTray.MenuItem("Show", new ShowWindowActionListener());
+
 			dorkbox.systemTray.MenuItem exitItem = new dorkbox.systemTray.MenuItem("Exit", new ExitWindowActionListener());
 
 			dorkbox.systemTray.Menu menu = systemTray.getMenu();
 			menu.add(openItem);
 			menu.add(exitItem);
 
-			//wlTrayIcon = new TrayIcon(iconImage, "Words Learning", menu);
-			//wlTrayIcon.setImageAutoSize(true);
-			//wlTrayIcon.addActionListener(showWindowAL);
 		}
 
 		@Override
 		public void windowClosing(WindowEvent e) {
 			super.windowClosing(e);
-			//try {
-			//	SystemTray tray = SystemTray.getSystemTray();
-			//	tray.add(wlTrayIcon);
-			//} catch (AWTException e1) {
-			//	e1.printStackTrace();
-			//}
 			passivate();
+			openItem.setEnabled(true);
 		}
 
 		@Override
 		public void windowActivated(WindowEvent e) {
 			super.windowActivated(e);
-			//SystemTray.getSystemTray().remove(wlTrayIcon);
+			openItem.setEnabled(false);
 		}
 
 		private class ShowWindowActionListener implements ActionListener {
@@ -481,78 +454,6 @@ public class WordsLearningMainUI extends JFrame implements WordsLearningUI {
 			}
 		}
 
-		// private void play(File file) {
-		// try {
-		// final Player player = Manager
-		// .createPlayer(file.toURI().toURL());
-		// player.realize();
-		// player.prefetch();
-		//
-		// Time duration = player.getDuration();
-		// System.out.println(duration.getSeconds());
-		// final long start = System.currentTimeMillis();
-		// player.start();
-		// player.addControllerListener(new ControllerListener() {
-		//
-		// @Override
-		// public void controllerUpdate(ControllerEvent event) {
-		// if (event instanceof EndOfMediaEvent) {
-		// System.out.println("took "
-		// + (System.currentTimeMillis() - start)
-		// + " ms");
-		// // try {
-		// // Thread.currentThread().sleep(3000);
-		// // } catch (InterruptedException e) {
-		// // e.printStackTrace();
-		// // }
-		// // player.deallocate();
-		// // player.close();
-		// }
-		// }
-		// });
-		// Thread.currentThread().sleep(2000);
-		// } catch (Exception ex) {
-		// ex.printStackTrace();
-		// }
-		// }
 	}
 
-	// public static void creteOrCorrectBaseDir(String propFilePath,
-	// String filePathesFilePath) throws IOException {
-	// String baseDirPath = System.getProperty("user.home")
-	// + "/.words_learning/";
-	// File existingBaseDir = new File(propFilePath).getParentFile();
-	// File baseDir = new File(baseDirPath);
-	// String[] neededFiles = new String[] { PROPERTIES_FILE_NAME,
-	// FILE_PATHES_FILE_NAME, RPFS_FILENAME, WLPROFILE_FILENAME };
-	// if (!baseDir.exists()) {
-	// baseDir.mkdirs();
-	// for (String neededFile : neededFiles) {
-	// FileUtils.copyFileToDirectory(new File(existingBaseDir,
-	// neededFile), baseDir);
-	// }
-	// }
-	// Properties props = new Properties();
-	// props.load(new FileInputStream(new File(baseDir,
-	// FILE_PATHES_FILE_NAME)));
-	// if (props.getProperty(P_DATA_DIR) == null) {
-	// Properties newFilePathes = new Properties();
-	// String statisticFilePath = props.getProperty("statistic.file.path");
-	// newFilePathes.put(P_DATA_DIR,
-	// new File(statisticFilePath).getParent());
-	// newFilePathes.store(new FileOutputStream(new File(baseDir,
-	// FILE_PATHES_FILE_NAME)), "Words Learning File Pathes");
-	//
-	// File vocsDir = new File(newFilePathes.getProperty(P_DATA_DIR),
-	// "vocs");
-	// if (!vocsDir.exists()) {
-	// vocsDir.mkdirs();
-	// String[] vocs = props.getProperty("vocabulary.file.path")
-	// .split(",");
-	// for (String voc : vocs) {
-	// FileUtils.copyFileToDirectory(new File(voc), vocsDir);
-	// }
-	// }
-	// }
-	// }
 }
