@@ -1,0 +1,68 @@
+<project name="Vocabulary Editor">
+
+	<property file="build/build.properties" />
+
+	<property name="project.lib.dir" value="lib" />
+
+	<property name="target.dir" value="target" />
+
+	<property name="classes.dir" value="target/classes" />
+	
+	<property name="src.scala.dir" value="src/main/scala" />
+	
+	<path id="build.classpath">
+		<fileset dir="${project.lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="${classes.dir}" />
+	</path>
+
+
+	<target name="build_jar">
+		<jar destfile="${target.dir}/vocabulary-editor.jar" manifest="src/main/resources/META-INF/MANIFEST.MF">
+			<fileset dir="${classes.dir}">
+				<exclude name="**/Test*.class" />
+			</fileset>
+		</jar>
+
+		<copy todir="${target.dir}/lib">
+			<fileset dir="${project.lib.dir}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build_vocs_accessor_lib">
+		<jar destfile="${target.dir}/wl_vocsaccess.jar">
+			<fileset dir="${classes.dir}">
+				<include name="com/wordslearning/ve/model/vocabularies/*.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="build_article_lib">
+		<jar destfile="${target.dir}/wlvoc_article.jar">
+			<fileset dir="${classes.dir}">
+				<include name="com/wordslearning/ve/model/article/*.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="build_model">
+		<jar destfile="${target.dir}/ve_model.jar">
+			<fileset dir="${classes.dir}">
+				<include name="com/wordslearning/ve/model/*.class" />
+				<include name="com/wordslearning/ve/model/*/*.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="deploy" depends="build_jar">
+		<copy todir="${deploy.dir}">
+			<fileset dir="${target.dir}">
+				<include name="vocabulary-editor.jar" />
+				<include name="lib/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+</project>

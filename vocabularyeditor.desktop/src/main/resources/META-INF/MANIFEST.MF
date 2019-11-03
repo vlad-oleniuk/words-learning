@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: . lib/JTattoo.jar lib/jackson-annotations-2.1.1.jar lib/jackson-core-2.1.1.jar lib/jackson-databind-2.1.1.jar
+Main-Class: com.wordslearning.ve.gui.VocabularyEditor
