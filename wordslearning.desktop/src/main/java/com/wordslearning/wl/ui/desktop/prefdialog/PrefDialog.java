@@ -64,15 +64,15 @@ public class PrefDialog extends JDialog {
 		tabbedPane.addTab(
 				"General",
 				new ImageIcon(PrefDialog.class
-						.getResource("icons/genProperties.png")), genPrefPanel);
+						.getResource("/icons/genProperties.png")), genPrefPanel);
 		tabbedPane.addTab(
 				"WL Profile",
 				new ImageIcon(PrefDialog.class
-						.getResource("icons/wlProfile.png")), profilePanel);
+						.getResource("/icons/wlProfile.png")), profilePanel);
 		tabbedPane.addTab(
 				"Profiles",
 				new ImageIcon(PrefDialog.class
-						.getResource("icons/profiles.png")), repProfilesPanel);
+						.getResource("/icons/profiles.png")), repProfilesPanel);
 
 		add(tabbedPane);
 		JButton closeButton = new JButton("Close");
@@ -268,7 +268,7 @@ public class PrefDialog extends JDialog {
 			learnComboBox = new JComboBox();
 			JLabel repeatsLabel = new JLabel("Repeats:");
 			JButton addRepProfileButton = new JButton(new ImageIcon(
-					PrefDialog.class.getResource("icons/addEx.png")));
+					PrefDialog.class.getResource("/icons/addEx.png")));
 			addRepProfileButton.addActionListener(new ActionListener() {
 
 				@Override

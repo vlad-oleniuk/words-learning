@@ -31,7 +31,7 @@ class RepeatProfilePanel extends JPanel {
 		});
 
 		JButton addExButton = new JButton(new ImageIcon(
-				PrefDialog.class.getResource("icons/addEx.png")));
+				PrefDialog.class.getResource("/icons/addEx.png")));
 		addExButton.addActionListener(new ActionListener() {
 
 			@Override

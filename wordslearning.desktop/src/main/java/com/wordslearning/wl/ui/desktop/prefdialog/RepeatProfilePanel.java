@@ -33,7 +33,7 @@ class RepeatProfilePanel extends JPanel {
 		repProfilesComboBox = new JComboBox(
 				settingsController.getRepeatingProfiles());
 		JButton removeButton = new JButton(new ImageIcon(
-				PrefDialog.class.getResource("icons/delEx.png")));
+				PrefDialog.class.getResource("/icons/delEx.png")));
 		removeButton.addActionListener(new ActionListener() {
 
 			@Override

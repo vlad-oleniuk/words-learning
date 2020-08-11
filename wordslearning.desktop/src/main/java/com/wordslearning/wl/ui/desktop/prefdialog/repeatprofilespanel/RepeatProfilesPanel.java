@@ -36,7 +36,7 @@ public class RepeatProfilesPanel extends JPanel {
 			}
 		});
 		JButton addRepProfileButton = new JButton(new ImageIcon(
-				PrefDialog.class.getResource("icons/addProf.png")));
+				PrefDialog.class.getResource("/icons/addProf.png")));
 		addRepProfileButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -46,7 +46,7 @@ public class RepeatProfilesPanel extends JPanel {
 		});
 
 		JButton remRepProfileButton = new JButton(new ImageIcon(
-				PrefDialog.class.getResource("icons/delProf.png")));
+				PrefDialog.class.getResource("/icons/delProf.png")));
 		remRepProfileButton.addActionListener(new ActionListener() {
 
 			@Override

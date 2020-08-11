@@ -48,7 +48,7 @@ class ExercisePanel extends JPanel {
 			}
 		});
 		JButton remExButton = new JButton(new ImageIcon(
-				PrefDialog.class.getResource("icons/delEx.png")));
+				PrefDialog.class.getResource("/icons/delEx.png")));
 		remExButton.addActionListener(new ActionListener() {
 
 			@Override
