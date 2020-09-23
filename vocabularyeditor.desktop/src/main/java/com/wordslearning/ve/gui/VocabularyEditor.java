@@ -146,7 +146,7 @@ public class VocabularyEditor extends JFrame implements VEModelListener {
 	public VocabularyEditor() {
 		setTitle("WL Vocabulary Editor ");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				VocabularyEditor.class.getResource("trayIcon.png")));
+				VocabularyEditor.class.getResource("/icons/trayIcon.png")));
 		model = new VEModel();
 		model.addListener(this);
 		addWindowListener(new VEWindowListener());
@@ -190,11 +190,11 @@ public class VocabularyEditor extends JFrame implements VEModelListener {
 		Box vBox = Box.createVerticalBox();
 
 		JButton editSourcesButton = new JButton(new ImageIcon(
-				VocabularyEditor.class.getResource("openSourcesDialog.png")));
+				VocabularyEditor.class.getResource("/icons/openSourcesDialog.png")));
 		editSourcesButton.addActionListener(new OpenDictionaryActionListener());
 
 		addWordFromDictButton = new JButton(new ImageIcon(
-				VocabularyEditor.class.getResource("arrowRight.png")));
+				VocabularyEditor.class.getResource("/icons/arrowRight.png")));
 		addWordFromDictButton.addActionListener(new ActionListener() {
 
 			@Override

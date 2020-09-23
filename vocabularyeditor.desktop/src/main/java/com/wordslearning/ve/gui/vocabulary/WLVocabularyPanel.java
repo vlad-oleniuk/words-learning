@@ -67,17 +67,17 @@ public class WLVocabularyPanel extends JPanel implements VEModelListener,
 		// toolBar.add(saveVocabularyButton);
 
 		importWordsButton = new JButton(new ImageIcon(
-				WLVocabularyPanel.class.getResource("importWords.png")));
+				WLVocabularyPanel.class.getResource("/icons/importWords.png")));
 		importWordsButton.addActionListener(new ImportActionListener());
 		importWordsButton.setEnabled(false);
 		toolBar.add(importWordsButton);
 		addNewWordButton = new JButton(new ImageIcon(
-				WLVocabularyPanel.class.getResource("addWLArticle.png")));
+				WLVocabularyPanel.class.getResource("/icons/addWLArticle.png")));
 		addNewWordButton.addActionListener(new AddWordActionListener());
 		addNewWordButton.setEnabled(false);
 		toolBar.add(addNewWordButton);
 		removeWordButton = new JButton(new ImageIcon(
-				WLVocabularyPanel.class.getResource("delWLArticle.png")));
+				WLVocabularyPanel.class.getResource("/icons/delWLArticle.png")));
 		removeWordButton.addActionListener(new RemoveWordActionListener());
 		removeWordButton.setEnabled(false);
 		toolBar.add(removeWordButton);
