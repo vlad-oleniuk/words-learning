@@ -58,13 +58,6 @@
 			<version>3.2</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.powermock/powermock-easymock -->
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-easymock</artifactId>
-			<version>1.3.7-full</version>
-			<scope>test</scope>
-		</dependency>
 
 
 	</dependencies>
