@@ -1,5 +1,5 @@
 .*
-*.iml
+**/*.iml
 
 # Log file
 *.log
