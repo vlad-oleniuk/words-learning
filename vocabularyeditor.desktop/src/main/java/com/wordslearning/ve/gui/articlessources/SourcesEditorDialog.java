@@ -267,7 +267,7 @@ public class SourcesEditorDialog extends JDialog implements VEModelListener {
 
 		public CreateAction() {
 			putValue(Action.LARGE_ICON_KEY, new ImageIcon(getClass()
-					.getResource("create.png")));
+					.getResource("/icons/create.png")));
 		}
 
 		@Override
@@ -287,7 +287,7 @@ public class SourcesEditorDialog extends JDialog implements VEModelListener {
 
 		public RemoveAction() {
 			putValue(Action.LARGE_ICON_KEY, new ImageIcon(getClass()
-					.getResource("remove.png")));
+					.getResource("/icons/remove.png")));
 		}
 
 		@Override
@@ -302,7 +302,7 @@ public class SourcesEditorDialog extends JDialog implements VEModelListener {
 
 		public AdditionAction() {
 			putValue(Action.LARGE_ICON_KEY, new ImageIcon(getClass()
-					.getResource("import.png")));
+					.getResource("/icons/import.png")));
 		}
 
 		@Override

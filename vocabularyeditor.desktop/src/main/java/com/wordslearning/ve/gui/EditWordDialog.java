@@ -101,7 +101,7 @@ public class EditWordDialog extends JDialog {
 
 		public MarkLearntWordAction() {
 			putValue(Action.LARGE_ICON_KEY, new ImageIcon(getClass()
-					.getResource("markExample.png")));
+					.getResource("/icons/markExample.png")));
 		}
 
 		@Override
