@@ -64,17 +64,19 @@ public class VocabularyEditor extends JFrame implements VEModelListener {
 			e.printStackTrace();
 		}
 
-		File propertiesFile = new File(System.getProperty("user.home")
-				+ "/Dropbox/Apps/words-learning/" + PROPERTIES_FILE_NAME);
-		if (!propertiesFile.exists()) {
-			createDefaultPropertiesFile(propertiesFile);
-		}
-
 		File baseDir = new File(System.getProperty("user.home")
 				+ "/Dropbox/Apps/words-learning");
 
 		if (args.length > 0)
 			baseDir = new File(args[0]);
+
+		File propertiesFile = new File(baseDir + PROPERTIES_FILE_NAME);
+		
+		if (!propertiesFile.exists()) {
+			createDefaultPropertiesFile(propertiesFile);
+		}
+
+
 
 		LOG.info("Base Dir == " + baseDir.getAbsolutePath());
 
