@@ -18,13 +18,14 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.10.8</version>
 		</dependency>
+
 		<dependency>
 			<groupId>privatee.oleniuk.wordslearning</groupId>
 			<artifactId>vocabularyeditordesktop</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
 			<groupId>javazoom</groupId>
 			<artifactId>jlayer</artifactId>
@@ -41,7 +42,7 @@
 		<dependency>
 			<groupId>com.dorkbox</groupId>
 			<artifactId>SystemTray</artifactId>
-			<version>3.17</version>
+			<version>4.2.1</version>
 		</dependency>
 
 		<dependency>
